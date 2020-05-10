@@ -3,7 +3,7 @@
  ![](images/Screenshot.png) 
 
  ## Description
- Our project consisted of creating an express JS server which  ran a website and stored client information. The user could first write down client information on the index.html page and then the client can save and store their information on the notes.html page"
+ Our project consisted of creating an express JS server which  ran a website and stored client information locally and to heroku. The user could first write down which will route  client   information on the index.html page and then the client can save and store their information by routeing to the  notes.html page"
  
  ## Librarties and Frameworks
  
@@ -21,7 +21,7 @@
  
  ```
 ## install
- I used node module  dependencie express and copy and pasted it into a package.json file. I then down loaded an npm install to run the node modules. 
+ I used node module  dependencie express which helped route the files onto the local and heroku server 
  ```
 
 ## Github
