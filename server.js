@@ -5,4 +5,6 @@ var port = process.env.PORT || 3000;
 
 
 app.use(express.json())
-    .use(express.urlencoded({ extended: false })); 
+    .use(express.urlencoded({ extended: false }));
+
+app.use(express.static('public'));
