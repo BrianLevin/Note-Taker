@@ -5,12 +5,12 @@ var port = process.env.PORT || 3000; // port which help support the server.
 
 
 app.use(express.json())
-    .use(express.urlencoded({ extended: false }));
+    .use(express.urlencoded({ extended: false })); // this will read the body in a json format
 
-app.use(express.static('public'));
+app.use(express.static('public')); //  This holds the tmls and css in the public folder which express will run through
 
 app.get('/notes', function (req, res) {
-    res.sendFile(__dirname + '/public/notes.html');
+    res.sendFile(__dirname + '/public/notes.html');  // sends the notrs html to the client
 
 });
 
