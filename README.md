@@ -24,18 +24,18 @@
  I used node module  dependencie express and copy and pasted it into a package.json file. I then down loaded an npm install to run the node modules. 
  ```
 
-## github
+## Github
 https://github.com/BrianLevin/
 
 ## email
 bml201095@gmail.com
 
-## usage
+## Usage
 ```
 The purpose of this repo is to take and save notes.
 ```
 
-## contributing
+## Contributing
 
 The user can feel free to take as many notes as they like!
 
