@@ -1,7 +1,7 @@
 var express = require("express"); // file to get expess
 var fs = require('fs'); // node module to read file
 var app = express(); // express package
-var port = process.env.PORT || 3000 // the port to host the website
+var port = process.env.PORT || 3000 // the port to host the website on heruku
 
 app.use(express.json())
     .use(express.urlencoded({ extended: false })); // reads the body and and puts express  in a json format
