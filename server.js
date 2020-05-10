@@ -41,3 +41,13 @@ app.post('/api/notes', function (req, res) {
 app.delete('/api/notes/:id', function (req, res) {
     var notes = (JSON.parse(fs.readFileSync(__dirname + '/db/db.json')));
     const id = req.params.id;
+    notes = notes.filter(function (note) {
+        if (note.id == id) {
+            return false;
+        } else {
+            return true;
+        }
+    });
+    fs.writeFileSync(__dirname + '/db/db.json', JSON.stringify(notes));
+    res.json(notes); // rewriting without the deleted note
+});
