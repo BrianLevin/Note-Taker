@@ -17,3 +17,7 @@ app.get('/notes', function (req, res) {
 app.get('/api/notes', function (req, res) {
     res.json(JSON.parse(fs.readFileSync(__dirname + '/db/db.json'))); // turn the string into an object
 });
+
+app.get('/*', function (req, res) {
+    res.sendFile(__dirname + '/public/index.html') //put the note on the html page
+});
