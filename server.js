@@ -1,7 +1,7 @@
-var express = require("express");
-var fs = require('fs');
-var app = express();
-var port = process.env.PORT || 3000;
+var express = require("express"); // variable which will read and run the express node modules through out th document.
+var fs = require('fs'); // variable which will read the files
+var app = express(); // variable which will hold  and run the express module
+var port = process.env.PORT || 3000; // port which help support the server.
 
 
 app.use(express.json())
@@ -15,7 +15,7 @@ app.get('/notes', function (req, res) {
 });
 
 app.get('/api/notes', function (req, res) {
-    res.json(JSON.parse(fs.readFileSync(__dirname + '/db/db.json'))); // turn the string into an object
+    res.json(JSON.parse(fs.readFileSync(__dirname + '/db/db.json'))); //  function which will turn the string into an object
 });
 
 app.get('/*', function (req, res) {
@@ -38,10 +38,10 @@ app.post('/api/notes', function (req, res) {
 
 });
 
-app.delete('/api/notes/:id', function (req, res) {
-    var notes = (JSON.parse(fs.readFileSync(__dirname + '/db/db.json')));
-    const id = req.params.id;
-    notes = notes.filter(function (note) {
+app.delete('/api/notes/:id', function (req, res) { // function which will delete the note
+    var notes = (JSON.parse(fs.readFileSync(__dirname + '/db/db.json'))); //turn the note into an object
+    const id = req.params.id; //variable which holds the id
+    notes = notes.filter(function (note) { // function which will filter through the array and return false when the user deletes the note
         if (note.id == id) {
             return false;
         } else {
