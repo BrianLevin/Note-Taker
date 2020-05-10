@@ -10,7 +10,7 @@ app.use(express.static('public')); //  this holds the public html and css files 
 
 
 app.get('/notes', function (req, res) {
-    res.sendFile(__dirname + '/public/notes.html'); //sends the notes html to the client
+    res.sendFile(__dirname + '/public/notes.html'); //sends the notes html to the client through the notes route
 
 });
 app.get('/api/notes', function (req, res) {
@@ -18,10 +18,10 @@ app.get('/api/notes', function (req, res) {
 });
 
 app.get('/*', function (req, res) {
-    res.sendFile(__dirname + '/public/index.html') //put the note on the html page
+    res.sendFile(__dirname + '/public/index.html') //put the note on the html page through the html route
 });
 app.post('/api/notes', function (req, res) {
-    var notes = (JSON.parse(fs.readFileSync(__dirname + '/db/db.json'))); // this is the data the client sent and it is going onto the html page
+    var notes = (JSON.parse(fs.readFileSync(__dirname + '/db/db.json'))); // this is the data the client sent and it is going onto the  and notes page route as an object
 
     notes.push({  //  notes pushed onto the page whether added or deleted
         title: req.body.title,
@@ -29,7 +29,7 @@ app.post('/api/notes', function (req, res) {
         id: notes.length - 1
     });
 
-    fs.writeFileSync(__dirname + '/db/db.json', JSON.stringify(notes)); // this will convery the the db/notes object to a string
+    fs.writeFileSync(__dirname + '/db/db.json', JSON.stringify(notes)); // this will convert the the db/notes object to a string
 
     res.json(notes);// sending the notes as json to the client
 
@@ -37,7 +37,7 @@ app.post('/api/notes', function (req, res) {
 });
 
 
-app.delete('/api/notes/:id', function (req, res) { // the node  function which will delete  the notes
+app.delete('/api/notes/:id', function (req, res) { // the node  function which will delete  the notes through the notes route
     var notes = (JSON.parse(fs.readFileSync(__dirname + '/db/db.json'))); //variable which will turn the notes into an object
     const id = req.params.id; // id variable
     notes = notes.filter(function (note) { // function which will filter out the selected dleeted notes
