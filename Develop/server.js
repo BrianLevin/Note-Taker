@@ -4,9 +4,9 @@ var app = express(); // express package
 var port = process.env.PORT || 3000 // the port to host the website
 
 app.use(express.json())
-    .use(express.urlencoded({ extended: false })); // read the body in json format ias a post request?
+    .use(express.urlencoded({ extended: false })); // reads the body and and puts express  in a json format
 
-app.use(express.static('public')); // html css are in
+app.use(express.static('public')); //  this holds the public html and css files within the express.js framework
 
 
 app.get('/notes', function (req, res) {
@@ -14,7 +14,7 @@ app.get('/notes', function (req, res) {
 
 });
 app.get('/api/notes', function (req, res) {
-    res.json(JSON.parse(fs.readFileSync(__dirname + '/db/db.json'))); // turn the string into an object
+    res.json(JSON.parse(fs.readFileSync(__dirname + '/db/db.json'))); // turn the string into an object and gets the  db rray values to  an object
 });
 
 app.get('/*', function (req, res) {
@@ -23,7 +23,7 @@ app.get('/*', function (req, res) {
 app.post('/api/notes', function (req, res) {
     var notes = (JSON.parse(fs.readFileSync(__dirname + '/db/db.json'))); // this is the data the client sent and it is going onto the html page
 
-    notes.push({  // getting the number on notes and then subtracting one
+    notes.push({  //  notes pushed onto the page whether added or deleted
         title: req.body.title,
         text: req.body.text,
         id: notes.length - 1
@@ -37,18 +37,18 @@ app.post('/api/notes', function (req, res) {
 });
 
 
-app.delete('/api/notes/:id', function (req, res) {
-    var notes = (JSON.parse(fs.readFileSync(__dirname + '/db/db.json')));
-    const id = req.params.id;
-    notes = notes.filter(function (note) {
+app.delete('/api/notes/:id', function (req, res) { // the node  function which will delete  the notes
+    var notes = (JSON.parse(fs.readFileSync(__dirname + '/db/db.json'))); //variable which will turn the notes into an object
+    const id = req.params.id; // id variable
+    notes = notes.filter(function (note) { // function which will filter out the selected dleeted notes
         if (note.id == id) {
             return false;
         } else {
             return true;
         }
     });
-    fs.writeFileSync(__dirname + '/db/db.json', JSON.stringify(notes));
-    res.json(notes); // rewriting without the deleted note
+    fs.writeFileSync(__dirname + '/db/db.json', JSON.stringify(notes)); // updated  deleted file will be converted to a string
+    res.json(notes); // rewriting without the deleted note in json format
 });
 
 
