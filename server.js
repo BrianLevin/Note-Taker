@@ -51,3 +51,7 @@ app.delete('/api/notes/:id', function (req, res) {
     fs.writeFileSync(__dirname + '/db/db.json', JSON.stringify(notes));
     res.json(notes); // rewriting without the deleted note
 });
+
+app.listen(port, function () {  // This will activate the server
+    console.log('App listening on port ' + port + '.');
+});
