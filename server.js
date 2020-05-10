@@ -30,3 +30,10 @@ app.post('/api/notes', function (req, res) {
         text: req.body.text,
         id: notes.length - 1
     });
+
+    fs.writeFileSync(__dirname + '/db/db.json', JSON.stringify(notes)); // this will convery the the db/notes object to a string
+
+    res.json(notes);// sending the notes as json to the client
+
+
+});
