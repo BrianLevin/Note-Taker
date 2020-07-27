@@ -1,10 +1,28 @@
 
  # Note Taker App
- ![](images/Screenshot.png) 
+ 
 
  ## Description
- Our project consisted of creating an express JS server which  ran a website and stored client information locally and to heroku. The user could first write down which will route  client   information on the index.html page and then the client can save and store their information by routeing to the  notes.html page"
+ This Note taking application allows users to write down, save and delete notes. This application  uses an express backend and save and retrieve note data from a JSON file. 
  
+  ## Click [here](https://serene-crag-34434.herokuapp.com/) for the live app.
+  
+   This is the home screen:
+ 
+ ![Home Screenshot](images/Home.png)  
+ 
+ This is the default page:
+ 
+  ![Home Screenshot](images/default.png)
+  
+  The user can write down the title and description of the note and then save it by clicking the top right of the age:
+  
+   ![Home Screenshot](images/Note.png) 
+   
+   The saved notes can then be deleted by clicking on the delete icon:
+    ![Home Screenshot](images/delete1.png) 
+     ![Home Screenshot](images/delete2.png)  
+     
  ## Librarties and Frameworks
  
   - Html
@@ -13,35 +31,15 @@
  - Node JS
  - Express JS
  
- ## Test
 
- ```
- No testing was used in this project
- ```
- 
- ```
-## install
- I used node module  dependencie express which helped route the files onto the local and heroku server 
- ```
-
-## Github
-https://github.com/BrianLevin/
 
 ## email
 bml201095@gmail.com
 
-## Usage
-```
-The purpose of this repo is to take and save notes.
-```
 
-## Contributing
 
-The user can feel free to take as many notes as they like!
 
-## Deployed Application
 
-https://serene-crag-34434.herokuapp.com/
 
 
 
